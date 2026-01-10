@@ -1,0 +1,14 @@
+[Unit]
+Description=Sync GPIO Script
+After=network-online.target mnt-ssd.mount
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/przemek/sync/script.py
+User=przemek
+Restart=always
+WorkingDirectory=/home/przemek/sync
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
